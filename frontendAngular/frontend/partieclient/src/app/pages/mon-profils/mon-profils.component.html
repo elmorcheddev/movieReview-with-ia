@@ -1,0 +1,47 @@
+<section
+  class="details-banner"
+  style="background-image: url(../../../assets/images/logo/logo.jpg)"
+></section>
+<section class="about-section padding-top padding-bottom">
+  <div class="container">
+    <div class="speaker-banner-content color">
+      <span class="cate mb-3">welcome </span>
+      <h2 class="title color">{{ client.nom + " " + client.prenom }}</h2>
+    </div>
+  </div>
+</section>
+<section class="movie-section padding-top padding-bottom">
+  <div class="container">
+    <h3 class="title mb-5">my reservation</h3>
+    <div class="row flex-wrap-reverse justify-content-center">
+      <div class="col-lg-12 mb-50 mb-lg-0">
+        <div class="filter-tab tab" *ngFor="let r of reservByFilm | keyvalue">
+          <h5 class="title">Film :{{ r.key }}</h5>
+
+          <div class="tab-area">
+            <div class="tab-item active">
+              <div class="row mb-10 justify-content-center">
+                <div class="col-sm-3 col-lg-4" *ngFor="let film of r.value">
+                  <div class="movie-grid">
+                    <div class="movie-content bg-one">
+                      <ul class="movie-rating-percent">
+                        <li>
+                          <div class="thumb">
+                            {{ film.date | date : "dd-MM-yyyy HH:mm" }}
+                          </div>
+                        </li>
+                        <li>
+                          <div class="thumb">Place N° {{ film.id }}</div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="col-12">
+       <h5 class="card-header">MOVIES GENRE </h5>
+                <div class="table-responsive text-nowrap">
+
+                  <p class="alert alert-danger" *ngIf="messagedelete">{{messagedelete}}</p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>#ID</th>
+                        <th>NOM</th>
+                        <th>ACTIONS</th>
+                      <th>  <a class="dropdown-item "   data-bs-toggle="modal"
+                        data-bs-target="#backDropModal"
+                        ><i class="bx bx-plus  me-1"></i> Ajouter genre</a
+                      ></th>
+                          
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                      <tr *ngFor="let g of genreList">
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{g.id}}</strong></td>
+                        
+                        <td><span class="badge bg-label-primary me-1">{{g.nomGenere}}</span></td>
+                        <td>
+                             
+                               <a class="dropdown-item" (click)="edit(g.id)"
+                               data-bs-toggle="modal"
+                               data-bs-target="#backDropModal"><i class="bx bx-edit-alt me-1"></i> Edit</a
+                              >
+                              <a class="dropdown-item"  
+                              (click)="delete(g.id)"
+                              ><i class="bx bx-trash me-1"></i> Delete</a
+                              >
+                           
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div> 
+    </div>
+    <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
+        <div class="modal-dialog">
+          <form class="modal-content" #form="ngForm" (ngSubmit)="addGenre(form)" >
+            <div class="modal-header">
+              <h5 class="modal-title" id="backDropModalTitle"> GENRE </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p style="color: green;">{{message}}</p>
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="nameBackdrop" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    id="nameBackdrop"
+                    [(ngModel)]="genre.nomGenere" name="nomGenere"
+                    class="form-control"
+                    placeholder="Enter Name"
+                  />
+                </div>
+              </div>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+     
+</div>

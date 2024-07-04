@@ -1,0 +1,65 @@
+<header class="header-section">
+  <div class="container">
+    <div class="header-wrapper">
+      <div class="logo">
+        <a href="index.html">
+          <img 
+            src="assets/images/oooooo.png" style="height: 100px; width: 150px;"
+            alt="logo"
+            
+          />
+        </a>
+      </div>
+      <ul class="menu">
+        <li>
+          <a routerLink="/home">Home</a>
+        </li>
+        <li>
+          <a routerLink="/movies">movies</a>
+          <ul class="submenu">
+            <li *ngFor="let g of listGenere">
+              <a (click)="byCat(g.id)">{{ g.nomGenere }}</a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a routerLink="/caland">calendrier </a>
+        </li>
+        <li>
+          <a routerLink="/about">About us</a>
+        </li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <li class="pr-0" *ngIf="!loginOrNot()">
+          <a routerLink="/login">Login</a>
+        </li>
+        <li class="pr-0" *ngIf="!loginOrNot()">
+          <a routerLink="/register">Register</a>
+        </li>
+        <li class="pr-0" *ngIf="loginOrNot()">
+          <a (click)="goToMyProfils()">{{
+            client.nom + " " + client.prenom
+          }}</a>
+        </li>
+        <li class="pr-0" *ngIf="loginOrNot()">
+          <a (click)="logout()">Sign out </a>
+        </li>
+      </ul>
+      <div class="header-bar d-lg-none">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</header>
